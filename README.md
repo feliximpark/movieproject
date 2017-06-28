@@ -1,8 +1,8 @@
-# The Marvel-Movie-Universe-App #
+#The Marvel-Movie-Universe-App#
 The Marvel-Universe-App shows all movies of the Marvel superheroes with a picture of the billboard and the date of release. By clicking on the pictures, you can open a movie-player and see the trailer of each film.
 --------
 
-## How to start the app ##
+##How to start the app##
 You have two possibilities to start the app.
 
 1. **You can start it from your commandline**. Just clone the repro, navigate in the command line to the directory of your cloned repro and type in: python entertainment_center.py.
