@@ -1,0 +1,268 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Marvel Universe</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+            
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        .hide {
+            display: none
+        }
+        .storyline{ 
+            position: absolute;   
+            top: 40%;
+            left: 30%; 
+            border-radius: 10px; 
+            padding: 5px; 
+            width: 40%; 
+            background-color: #222b3a;
+            padding: 5px
+        }
+        p{
+            color: #f9fafc; 
+            font-size: 120%; 
+        }    
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Showing the storyline when hovering over the pictures
+        $(document).ready(function(){
+          $('.movie-tile').hover(function(){
+          console.log("Hover gezündet"); 
+            $(this).find('.storyline').removeClass('hide')}, function(){$(this).find('.storyline').addClass('hide')})
+        }); 
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">The Marvel Movie Universe</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container clearfix">     
+           
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="pr7tDrwQ3t8" data-toggle="modal" data-target="#trailer">
+    <img src="http://t2.gstatic.com/images?q=tbn:ANd9GcSzRHzPW9j56dGLliOdUV0lzjeUwfALe9Zn2Ys7Kkwj4YsvDpsh" width="220" height="342">
+    <h2>Guardians of the Galaxy Vol. 2</h2>
+    <h4>May 5, 2017</h4>
+    <div class="storyline hide">
+        <p><strong>The Guardians of the Galaxy are fighting a new enemy.</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="MWRUNTLisPo" data-toggle="modal" data-target="#trailer">
+    <img src="http://t3.gstatic.com/images?q=tbn:ANd9GcSKS0s-IiPnSKY5TwqL-CoUJfKRk5VYt6QBD4O66-1Wct_aPjhM" width="220" height="342">
+    <h2>Doctor Strange</h2>
+    <h4>November 4, 2016</h4>
+    <div class="storyline hide">
+        <p><strong>A Doctor is learingn, that life is more complex than it seems to be</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FkTybqcX-Yo" data-toggle="modal" data-target="#trailer">
+    <img src="http://t0.gstatic.com/images?q=tbn:ANd9GcTVQ1HWTAPvw21dZLbh_exuiws7Y4HWcMT0OiOgtkk-rOWQiCiH" width="220" height="342">
+    <h2>Captain America: Civil War</h2>
+    <h4>May 6, 2016</h4>
+    <div class="storyline hide">
+        <p><strong>A crack goes through the Avengers. They fight each other</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="QfOZWGLT1JM" data-toggle="modal" data-target="#trailer">
+    <img src="http://t3.gstatic.com/images?q=tbn:ANd9GcRvTs_PtoegY0eToOxODXT12cfV-AipOD6GftFO0ze7wbociMNB" width="220" height="342">
+    <h2>Ant-Man</h2>
+    <h4>July 17, 2015</h4>
+    <div class="storyline hide">
+        <p><strong>A former criminal gets the power to become supersmall</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="rD8lWtcgeyg" data-toggle="modal" data-target="#trailer">
+    <img src="http://t0.gstatic.com/images?q=tbn:ANd9GcRlGeugacRkKznDOtRhUCVt0AkrOTPbaaKwF9xgGZgNViyC_Xko" width="220" height="342">
+    <h2>Avengers: Age of Ultron</h2>
+    <h4>May 1, 2015</h4>
+    <div class="storyline hide">
+        <p><strong>The Avengers have to fight an artifical intelligence</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="d96cjJhvlMA" data-toggle="modal" data-target="#trailer">
+    <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcQosfipEWfoKWReYjWOUS1bKJOMuEXs7gth_2ySs9DKL2kTyPLA" width="220" height="342">
+    <h2>Guardians of the Galaxy</h2>
+    <h4>August 1, 2014</h4>
+    <div class="storyline hide">
+        <p><strong>A group of space adventures are joining together to find a mysterious source of energy</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="7SlILk2WMTI" data-toggle="modal" data-target="#trailer">
+    <img src="http://vignette3.wikia.nocookie.net/avengers/images/5/50/Captain_America_2_The_Return_of_the_First_Avenger.jpg/revision/latest?cb=20140222150959&path-prefix=de" width="220" height="342">
+    <h2>The Winter Soldier</h2>
+    <h4>April 4, 2014</h4>
+    <div class="storyline hide">
+        <p><strong>Captain America is looking for his old friend... who has become an enemy</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="4KTvjFGgGkk" data-toggle="modal" data-target="#trailer">
+    <img src="http://vignette4.wikia.nocookie.net/avengers/images/6/6c/Thor_-_The_Dark_Kingdom.jpg/revision/latest?cb=20140829154032&path-prefix=de" width="220" height="342">
+    <h2>Thor: The Dark World</h2>
+    <h4>November 8, 2013</h4>
+    <div class="storyline hide">
+        <p><strong>Thor is a God - and he is fighting agains Aliens... and his brother</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Ke1Y3P9D0Bc" data-toggle="modal" data-target="#trailer">
+    <img src="http://t0.gstatic.com/images?q=tbn:ANd9GcRLonM7bpdRGXJH75VkND-gHkSn4QXJZ108x7eKTQkCcNQ6xEVa" width="220" height="342">
+    <h2>Iron Man 3</h2>
+    <h4>May 3, 2013</h4>
+    <div class="storyline hide">
+        <p><strong>Billionaire Tony Stark is fighting an international terrorist. At least he thinks so...</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="None" data-toggle="modal" data-target="#trailer">
+    <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcTp0qlAoWcOOswIkL_qpjYzJqCCDmWXiBzCXiqbE43Obo8c0Z-s" width="220" height="342">
+    <h2>Marvel's The Avengers</h2>
+    <h4>May 4, 2012</h4>
+    <div class="storyline hide">
+        <p><strong>A group of superheros is saving the world</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="JerVrbLldXw" data-toggle="modal" data-target="#trailer">
+    <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcSawHqQ0WjKUclOs-1KvPDRGuBpILVOZVKsYyanuHjDg43aJNYE" width="220" height="342">
+    <h2>The First Avenger</h2>
+    <h4>July 22, 2011</h4>
+    <div class="storyline hide">
+        <p><strong>A super-soldier from the 40th awakes today - and is fighting a nazi-organisation</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="YSC9CjSYvYA" data-toggle="modal" data-target="#trailer">
+    <img src="http://t0.gstatic.com/images?q=tbn:ANd9GcRSZN3c1Wj6s6Nz0DLOYTZY4GM27rt6zRDCdw_z_0ff8oAKTeXE" width="220" height="342">
+    <h2>Thor</h2>
+    <h4>May 6, 2011</h4>
+    <div class="storyline hide">
+        <p><strong>The son of the God Odin is coming to Earth</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="BoohRoVA9WQ" data-toggle="modal" data-target="#trailer">
+    <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcTbUWVX-6eusHp85uW6cbtbwzrW5UtBXgpc2FkCQEJ_YUO574gO" width="220" height="342">
+    <h2>Iron Man 2</h2>
+    <h4>May 7, 2010</h4>
+    <div class="storyline hide">
+        <p><strong>Billionaire Tony Stark is confronted with the history of his murderd dad</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FBSfUg-D7MI" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.hulk-derfilm.de/wp-content/uploads/poster_lg01.jpg" width="220" height="342">
+    <h2>The Incredible Hulk</h2>
+    <h4>June 13, 2008</h4>
+    <div class="storyline hide">
+        <p><strong>A scientist is becoming a green monster, when he wants to save the world</strong></p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="8hYlB38asDY" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.gstatic.com/tv/thumb/movieposters/170620/p170620_p_v8_ak.jpg" width="220" height="342">
+    <h2>Iron Man</h2>
+    <h4>May 2, 2008</h4>
+    <div class="storyline hide">
+        <p><strong>A rich playboy is becoming an iron superhero</strong></p>
+    </div>
+</div>
+   
+    </div>
+  </body>
+</html>
