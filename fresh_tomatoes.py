@@ -92,9 +92,9 @@ main_page_head = '''
         });
         // Showing the storyline when hovering over the pictures
         $(document).ready(function(){
-          $('.movie-tile').hover(function(){
-          console.log("Hover gezündet"); 
-            $(this).find('.storyline').removeClass('hide')}, function(){$(this).find('.storyline').addClass('hide')})
+          $('.movie-tile').hover(function(){ 
+            $(this).find('.storyline').removeClass('hide')}, function(){
+            $(this).find('.storyline').addClass('hide')})
         }); 
         // Animate in the movies when the page loads
         $(document).ready(function () {

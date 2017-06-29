@@ -1,6 +1,6 @@
 # The Marvel-Movie-Universe-App
 
-The Marvel-Universe-App shows all movies of the Marvel superheroes with a picture of the billboard and the date of release. By clicking on the pictures, you can open a movie-player and see the trailer of each film.
+The Marvel-Universe-App shows all movies of the Marvel superheroes with a picture of the billboard and the date of release. By clicking on the pictures, you can open a movie-player and see the trailer of each film. By hovering over the film billboards, a description of the storyline will appear.
 
 --------
 
