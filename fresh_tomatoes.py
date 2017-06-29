@@ -35,7 +35,7 @@ main_page_head = '''
         .movie-tile {
             margin-bottom: 20px;
             padding-top: 20px;
-            
+
         }
         .movie-tile:hover {
             background-color: #EEE;
@@ -57,20 +57,20 @@ main_page_head = '''
         .hide {
             display: none
         }
-        .storyline{ 
-            position: absolute;   
+        .storyline{
+            position: absolute;
             top: 40%;
-            left: 30%; 
-            border-radius: 10px; 
-            padding: 5px; 
-            width: 40%; 
+            left: 30%;
+            border-radius: 10px;
+            padding: 5px;
+            width: 40%;
             background-color: #222b3a;
             padding: 5px
         }
         p{
-            color: #f9fafc; 
-            font-size: 120%; 
-        }    
+            color: #f9fafc;
+            font-size: 120%;
+        }
     </style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
@@ -92,10 +92,10 @@ main_page_head = '''
         });
         // Showing the storyline when hovering over the pictures
         $(document).ready(function(){
-          $('.movie-tile').hover(function(){ 
+          $('.movie-tile').hover(function(){
             $(this).find('.storyline').removeClass('hide')}, function(){
             $(this).find('.storyline').addClass('hide')})
-        }); 
+        });
         // Animate in the movies when the page loads
         $(document).ready(function () {
           $('.movie-tile').hide().first().show("fast", function showNext() {
@@ -123,7 +123,7 @@ main_page_content = '''
         </div>
       </div>
     </div>
-    
+
     <!-- Main Page Content -->
     <div class="container">
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -134,8 +134,8 @@ main_page_content = '''
         </div>
       </div>
     </div>
-    <div class="container clearfix">     
-           {movie_tiles}   
+    <div class="container clearfix">
+           {movie_tiles}
     </div>
   </body>
 </html>
@@ -165,9 +165,9 @@ def create_movie_tiles_content(movies):
         # Append the tile for the movie with its content filled in
         content += movie_tile_content.format(
             movie_title=movie.title,
-            movie_release=movie.movie_release, 
+            movie_release=movie.movie_release,
             poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id, 
+            trailer_youtube_id=trailer_youtube_id,
             movie_storyline=movie.storyline
         )
     return content
